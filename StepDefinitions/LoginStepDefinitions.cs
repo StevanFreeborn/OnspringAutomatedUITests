@@ -54,6 +54,12 @@ namespace OnspringAutomatedUITests.StepDefinitions
             _loginPage.EnterInvalidPassword();
         }
 
+        [When(@"the user enters an invalid username")]
+        public void WhenTheUserEntersAnInvalidUsername()
+        {
+            _loginPage.EnterInvalidUsername();
+        }
+
         [Then(@"the user should be logged in to the instance")]
         public void ThenTheUserShouldBeLoggedInToTheInstance()
         {

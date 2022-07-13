@@ -61,5 +61,12 @@ namespace OnspringAutomatedUITests.PageObjects
         {
             return ValidationSummaryErrors.GetAttribute("innerText");
         }
+
+        internal void EnterInvalidUsername()
+        {
+            UsernameField.Clear();
+            var username = new Guid().ToString();
+            UsernameField.SendKeys(username);
+        }
     }
 }
