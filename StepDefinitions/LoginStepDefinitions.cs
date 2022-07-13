@@ -25,9 +25,28 @@ namespace OnspringAutomatedUITests.StepDefinitions
         }
 
         [Given(@"a user has navigated to the login page")]
+        [Given(@"the user has navigated to the login page")]
         public void GivenAUserHasNavigatedToTheLoginPage()
         {
             _loginPage.NavigateTo();
+        }
+
+        [Given(@"the user has attempted to login (.*) times unsuccessfully")]
+        public void GivenTheUserHasAttemptedToLoginTimesUnsuccessfully(int attempts)
+        {
+            for (var i = 0; i < attempts; i++)
+            {
+                _loginPage.EnterUsername();
+                _loginPage.EnterInvalidPassword();
+                _loginPage.Login();
+            }
+        }
+        
+        [Given(@"the user waited (.*) minutes")]
+        public void GivenTheUserWaitedMinute(int timeToWait)
+        {
+            var milliseconds = timeToWait * 60000;
+            Thread.Sleep(milliseconds);
         }
 
         [When(@"the user enters their username")]

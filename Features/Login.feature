@@ -26,3 +26,17 @@ Scenario: Prevent user from logging in when username is invalid.
 	And the user clicks on the login button
 	Then the user should not be logged in to the instance
 	And the invalid username/password error message should be displayed to the user
+
+Scenario: Prevent user from logging in for 1 minute after 5 failed login attempts.
+	Given a user has navigated to the login page
+	And the user has attempted to login 5 times unsuccessfully
+	When the user enters their username
+	And the user enters their password
+	Then the user should not be logged in to the instance
+	And the invalid username/password error message should be displayed to the user
+	Given the user waited 1 minutes
+	And the user has navigated to the login page
+	When the user enters their username
+	And the user enters their password
+	And the user clicks on the login button
+	Then the user should be logged in to the instance
