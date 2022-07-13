@@ -58,7 +58,8 @@ namespace OnspringAutomatedUITests.StepDefinitions
         public void ThenTheUserShouldBeLoggedInToTheInstance()
         {
             _driver.Url.Should().Be(_dashboardPage.GetUrl());
-            _sharedLayoutPage.GetUsersName().Should().Be("Stevan Freeborn");
+            var usersName = _config.GetSection("UserCredentials")["ActiveUserName"];
+            _sharedLayoutPage.GetUsersName().Should().Be(usersName);
         }
 
         [Then(@"the user should not be logged in to the instance")]
