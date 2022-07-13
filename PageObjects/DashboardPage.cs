@@ -14,8 +14,6 @@ namespace OnspringAutomatedUITests.PageObjects
             _driver = driver;
         }
 
-        private IWebElement Username => _driver.FindElement(By.Id("user-name"));
-
         public string GetUrl()
         {
             var baseUrl = _config.GetSection("Instance")["BaseUrl"];
@@ -27,11 +25,5 @@ namespace OnspringAutomatedUITests.PageObjects
             var url = GetUrl();
             _driver.Navigate().GoToUrl(url);
         }
-
-        public string GetUsersName()
-        {
-            return Username.GetAttribute("innerText");
-        }
-
     }
 }

@@ -14,14 +14,14 @@ namespace OnspringAutomatedUITests.Hook
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 
-        [BeforeTestRun]
+        [BeforeScenario]
         public static void BeforeTestRun()
         {
             config = ConfigurationFactory.GetConfig();
             driver = DriverFactory.GetDriver();
         }
 
-        [AfterTestRun]
+        [AfterScenario]
         public static void AfterTestRun()
         {
             driver!.Quit();

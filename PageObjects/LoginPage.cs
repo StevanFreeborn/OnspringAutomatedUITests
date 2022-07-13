@@ -17,10 +17,12 @@ namespace OnspringAutomatedUITests.PageObjects
         private IWebElement UsernameField => _driver.FindElement(By.Id("UserName"));
         private IWebElement PasswordField => _driver.FindElement(By.Id("Password"));
         private IWebElement LoginButton => _driver.FindElement(By.ClassName("signin"));
+        private IWebElement ValidationSummaryErrors => _driver.FindElement(By.ClassName("validation-summary-errors"));
 
         public string GetUrl()
         {
-            return _config.GetSection("Instance")["BaseUrl"];
+            var baseUrl = _config.GetSection("Instance")["BaseUrl"];
+            return $"{baseUrl}/Public/Login";
         }
 
         public void NavigateTo()
@@ -36,16 +38,28 @@ namespace OnspringAutomatedUITests.PageObjects
             UsernameField.SendKeys(username);
         }
 
-        public void EnterPassword()
+        public void EnterValidPassword()
         {
             PasswordField.Clear();
             var password = _config.GetSection("UserCredentials")["ActiveUserPassword"];
             PasswordField.SendKeys(password);
         }
 
+        public void EnterInvalidPassword()
+        {
+            PasswordField.Clear();
+            var password = new Guid().ToString();
+            PasswordField.SendKeys(password);
+        }
+
         public void Login()
         {
             LoginButton.Click();
+        }
+
+        public string GetValidationSummaryErrors()
+        {
+            return ValidationSummaryErrors.GetAttribute("innerText");
         }
     }
 }
