@@ -35,7 +35,6 @@ Scenario: Prevent user from logging in for 1 minute after 5 failed login attempt
 	Then the user should not be logged in to the instance
 	And the invalid username/password error message should be displayed to the user
 	Given the user waited 1 minutes
-	And the user has navigated to the login page
 	When the user enters their username
 	And the user enters their password
 	And the user clicks on the login button
