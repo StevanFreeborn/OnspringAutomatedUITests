@@ -15,10 +15,10 @@ namespace OnspringAutomatedUITests.StepDefinitions
         private readonly SharedLayoutPage _sharedLayoutPage;
         private readonly DashboardPage _dashboardPage;
 
-        public LoginStepDefinitions()
+        public LoginStepDefinitions(IWebDriver driver, IConfiguration config)
         {
-            _config = Hooks.config;
-            _driver = Hooks.driver;
+            _config = config;
+            _driver = driver;
             _loginPage = new LoginPage(_config, _driver);
             _sharedLayoutPage = new SharedLayoutPage(_config, _driver);
             _dashboardPage = new DashboardPage(_config, _driver);
