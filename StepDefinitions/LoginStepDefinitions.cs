@@ -44,7 +44,7 @@ namespace OnspringAutomatedUITests.StepDefinitions
         [Given(@"the user waited (.*) minutes")]
         public void GivenTheUserWaitedMinute(int timeToWait)
         {
-            var milliseconds = timeToWait * 60000;
+            var milliseconds = timeToWait * 70000;
             Thread.Sleep(milliseconds);
         }
 
