@@ -42,7 +42,7 @@ namespace OnspringAutomatedUITests.Features.ResetPassword
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/ResetPassword", "ResetPasswordConfirmation", "When a user enters their username into the field on the forgot password page and " +
                     "clicks the reset via email button a confirmation message should be displayed inf" +
-                    "orming them of next steps.", ProgrammingLanguage.CSharp, featureTags);
+                    "orming them of next steps and they should receive an email.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -85,12 +85,14 @@ namespace OnspringAutomatedUITests.Features.ResetPassword
         [Xunit.SkippableFactAttribute(DisplayName="User navigates to the forgot password page and requests to reset password")]
         [Xunit.TraitAttribute("FeatureTitle", "ResetPasswordConfirmation")]
         [Xunit.TraitAttribute("Description", "User navigates to the forgot password page and requests to reset password")]
+        [Xunit.TraitAttribute("Category", "mailslurp")]
         public void UserNavigatesToTheForgotPasswordPageAndRequestsToResetPassword()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "mailslurp"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User navigates to the forgot password page and requests to reset password", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -100,17 +102,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
+#line 7
  testRunner.Given("a user has navigated to the forgot password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 8
  testRunner.When("the user enters their username on the forgot password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 8
+#line 9
  testRunner.And("the user clicks the reset via email button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 9
+#line 10
  testRunner.Then("the reset password message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 11
+ testRunner.And("the user should receive a password reset email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
