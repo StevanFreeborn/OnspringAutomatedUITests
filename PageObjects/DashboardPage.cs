@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
+using OnspringAutomatedUITests.Helpers;
 using OpenQA.Selenium;
 
 namespace OnspringAutomatedUITests.PageObjects
 {
     public class DashboardPage
     {
+        private readonly string _path = "/Dashboard";
         private readonly IConfiguration _config;
         private readonly IWebDriver _driver;
 
@@ -16,8 +18,7 @@ namespace OnspringAutomatedUITests.PageObjects
 
         public string GetUrl()
         {
-            var baseUrl = _config.GetSection("Instance")["BaseUrl"];
-            return $"{baseUrl}/Dashboard";
+            return UrlFactory.BuildUrl(_path);
         }
 
         public void NavigateTo()

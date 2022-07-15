@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Login\" />
-    <Folder Include="Support\" />
   </ItemGroup>
 
   <ItemGroup>

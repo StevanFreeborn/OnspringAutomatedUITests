@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
+using OnspringAutomatedUITests.Helpers;
 using OpenQA.Selenium;
 
 namespace OnspringAutomatedUITests.PageObjects
 {
     public class LoginPage
     {
+        private readonly string _path = "/Public/Login";
         private readonly IConfiguration _config;
         private readonly IWebDriver _driver;
 
@@ -18,11 +20,11 @@ namespace OnspringAutomatedUITests.PageObjects
         private IWebElement PasswordField => _driver.FindElement(By.Id("Password"));
         private IWebElement LoginButton => _driver.FindElement(By.ClassName("signin"));
         private IWebElement ValidationSummaryErrors => _driver.FindElement(By.ClassName("validation-summary-errors"));
+        private IWebElement ForgotPasswordLink => _driver.FindElement(By.LinkText("Forgot Password?"));
 
         public string GetUrl()
         {
-            var baseUrl = _config.GetSection("Instance")["BaseUrl"];
-            return $"{baseUrl}/Public/Login";
+            return UrlFactory.BuildUrl(_path);
         }
 
         public void NavigateTo()
@@ -31,10 +33,17 @@ namespace OnspringAutomatedUITests.PageObjects
             _driver.Navigate().GoToUrl(url);
         }
 
-        public void EnterUsername()
+        public void EnterValidUsername()
         {
             UsernameField.Clear();
             var username = _config.GetSection("UserCredentials")["ActiveUserUsername"];
+            UsernameField.SendKeys(username);
+        }
+
+        public void EnterInvalidUsername()
+        {
+            UsernameField.Clear();
+            var username = new Guid().ToString();
             UsernameField.SendKeys(username);
         }
 
@@ -52,7 +61,7 @@ namespace OnspringAutomatedUITests.PageObjects
             PasswordField.SendKeys(password);
         }
 
-        public void Login()
+        public void ClickLoginButton()
         {
             LoginButton.Click();
         }
@@ -62,11 +71,9 @@ namespace OnspringAutomatedUITests.PageObjects
             return ValidationSummaryErrors.GetAttribute("innerText");
         }
 
-        internal void EnterInvalidUsername()
+        public void ClickForgotPasswordLink()
         {
-            UsernameField.Clear();
-            var username = new Guid().ToString();
-            UsernameField.SendKeys(username);
+            ForgotPasswordLink.Click();
         }
     }
 }

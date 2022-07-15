@@ -1,8 +1,7 @@
 using Microsoft.Extensions.Configuration;
-using OnspringAutomatedUITests.Hook;
+using OnspringAutomatedUITests.Constants;
 using OnspringAutomatedUITests.PageObjects;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace OnspringAutomatedUITests.StepDefinitions
 {
@@ -36,9 +35,9 @@ namespace OnspringAutomatedUITests.StepDefinitions
         {
             for (var i = 0; i < attempts; i++)
             {
-                _loginPage.EnterUsername();
+                _loginPage.EnterValidUsername();
                 _loginPage.EnterInvalidPassword();
-                _loginPage.Login();
+                _loginPage.ClickLoginButton();
             }
         }
         
@@ -52,7 +51,7 @@ namespace OnspringAutomatedUITests.StepDefinitions
         [When(@"the user enters their username")]
         public void WhenTheUserEntersTheirUsername()
         {
-            _loginPage.EnterUsername();
+            _loginPage.EnterValidUsername();
         }
 
         [When(@"the user enters their password")]
@@ -64,7 +63,7 @@ namespace OnspringAutomatedUITests.StepDefinitions
         [When(@"the user clicks on the login button")]
         public void WhenTheUserClicksOnTheLoginButton()
         {
-            _loginPage.Login();
+            _loginPage.ClickLoginButton();
         }
 
         [When(@"the user enters an invalid password")]
@@ -96,7 +95,7 @@ namespace OnspringAutomatedUITests.StepDefinitions
         [Then(@"the invalid username/password error message should be displayed to the user")]
         public void ThenTheInvalidUsernamePasswordErrorMessageShouldBeDisplayedToTheUser()
         {
-            _loginPage.GetValidationSummaryErrors().Should().Contain("Username/Password combination is not valid");
+            _loginPage.GetValidationSummaryErrors().Should().Contain(LoginPageConstants.UsernamePasswordValidationError);
         }
     }
 }
