@@ -2,6 +2,7 @@
 
 A user should be locked out for 1 minute if they make 5 failed login attempts.
 
+@ignore
 Scenario: Prevent user from logging in for 1 minute after 5 failed login attempts.
 	Given a user has navigated to the login page
 	And the user has attempted to login 5 times unsuccessfully

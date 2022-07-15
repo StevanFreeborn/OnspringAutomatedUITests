@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using OnspringAutomatedUITests.Constants;
-using OnspringAutomatedUITests.PageObjects;
+using OnspringAutomatedUITests.PageObjects.Onspring;
 using OpenQA.Selenium;
 
 namespace OnspringAutomatedUITests.StepDefinitions

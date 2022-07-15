@@ -1,6 +1,6 @@
 ﻿using BoDi;
 using Microsoft.Extensions.Configuration;
-using OnspringAutomatedUITests.Configuration;
+using OnspringAutomatedUITests.Config;
 
 namespace OnspringAutomatedUITests.Hook
 {

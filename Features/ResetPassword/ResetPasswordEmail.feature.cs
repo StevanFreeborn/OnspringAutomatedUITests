@@ -19,7 +19,7 @@ namespace OnspringAutomatedUITests.Features.ResetPassword
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class ResetPasswordConfirmationFeature : object, Xunit.IClassFixture<ResetPasswordConfirmationFeature.FixtureData>, System.IDisposable
+    public partial class ResetPasswordEmailFeature : object, Xunit.IClassFixture<ResetPasswordEmailFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace OnspringAutomatedUITests.Features.ResetPassword
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "ResetPasswordConfirmation.feature"
+#line 1 "ResetPasswordEmail.feature"
 #line hidden
         
-        public ResetPasswordConfirmationFeature(ResetPasswordConfirmationFeature.FixtureData fixtureData, OnspringAutomatedUITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public ResetPasswordEmailFeature(ResetPasswordEmailFeature.FixtureData fixtureData, OnspringAutomatedUITests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,9 +40,9 @@ namespace OnspringAutomatedUITests.Features.ResetPassword
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/ResetPassword", "ResetPasswordConfirmation", "When a user enters their username into the field on the forgot password page and " +
-                    "clicks the reset via email button a confirmation message should be displayed inf" +
-                    "orming them of next steps.", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/ResetPassword", "ResetPasswordEmail", "When a user enters a valid username for an active user and clicks the reset via e" +
+                    "mail button on the forgot password page they should receive an email with a link" +
+                    " allowing them to reset their password.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -83,14 +83,16 @@ namespace OnspringAutomatedUITests.Features.ResetPassword
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="User navigates to the forgot password page and requests to reset password")]
-        [Xunit.TraitAttribute("FeatureTitle", "ResetPasswordConfirmation")]
+        [Xunit.TraitAttribute("FeatureTitle", "ResetPasswordEmail")]
         [Xunit.TraitAttribute("Description", "User navigates to the forgot password page and requests to reset password")]
+        [Xunit.TraitAttribute("Category", "mailslurp")]
         public void UserNavigatesToTheForgotPasswordPageAndRequestsToResetPassword()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "mailslurp"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User navigates to the forgot password page and requests to reset password", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -100,17 +102,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
+#line 7
  testRunner.Given("a user has navigated to the forgot password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 8
  testRunner.When("the user enters their username on the forgot password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 8
+#line 9
  testRunner.And("the user clicks the reset via email button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 9
- testRunner.Then("the reset password message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+ testRunner.Then("the user should receive a password reset email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -123,12 +125,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                ResetPasswordConfirmationFeature.FeatureSetup();
+                ResetPasswordEmailFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                ResetPasswordConfirmationFeature.FeatureTearDown();
+                ResetPasswordEmailFeature.FeatureTearDown();
             }
         }
     }

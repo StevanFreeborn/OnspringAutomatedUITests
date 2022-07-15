@@ -106,7 +106,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the user clicks on the forgot password link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then("the user will be taken to the forgot password page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the user will be taken to the forgot password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

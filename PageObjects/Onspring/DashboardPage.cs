@@ -2,7 +2,7 @@
 using OnspringAutomatedUITests.Helpers;
 using OpenQA.Selenium;
 
-namespace OnspringAutomatedUITests.PageObjects
+namespace OnspringAutomatedUITests.PageObjects.Onspring
 {
     public class DashboardPage
     {

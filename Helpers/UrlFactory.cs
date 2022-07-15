@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using OnspringAutomatedUITests.Configuration;
+using OnspringAutomatedUITests.Config;
 
 namespace OnspringAutomatedUITests.Helpers
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace OnspringAutomatedUITests.Configuration
+namespace OnspringAutomatedUITests.Config
 {
     public static class ConfigurationFactory
     {
@@ -8,7 +8,7 @@ namespace OnspringAutomatedUITests.Configuration
         {
             return new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("Configuration/appsettings.json")
+                .AddJsonFile("Config/appsettings.json")
                 .Build();
         }
     }
